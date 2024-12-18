@@ -13,6 +13,11 @@ module ResqueWeb
       end
     end
 
+    def kill_worker
+      Resque::Worker.find(params[:id]).unregister_worker
+      redirect_to overview_path
+    end
+
     private
 
     def display_subtabs

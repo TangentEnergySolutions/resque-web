@@ -31,6 +31,8 @@ ResqueWeb::Engine.routes.draw do
   get '/stats/keys' => 'stats#keys'
   get '/stats/keys/:id' => 'stats#keys', :constraints => { :id => id_pattern }, as: :keys_statistic
 
+  delete "/kill_worker/:id" => "workers#kill_worker", as: :kill_worker
+
   root :to => 'overview#show'
 
 end
